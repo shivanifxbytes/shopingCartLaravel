@@ -14,10 +14,8 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('ajaxRequest', 'HomeController@ajaxRequest');
-Route::post('ajaxRequest', 'HomeController@ajaxRequestPost');
-Route::get('my-home', 'HomeController@myHome');
 Route::get('my-users', 'HomeController@myUsers');
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/logout','HomeController@getLogout');
+
