@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>SB Admin 2 - Bootstrap Admin Theme</title>
-    <!-- Bootstrap Core CSS -->
+    <title>Admin Shoping Cart Admin Theme</title>
+    <!-- Bootstrap Core CSS SB Admin 2 - Bootstrap Admin Theme-->
     <link href="{!! asset('public/theme/vendor/bootstrap/css/bootstrap.min.css') !!}" rel="stylesheet">
     <!-- MetisMenu CSS -->
     <link href="{!! asset('public/theme/vendor/metisMenu/metisMenu.min.css') !!}" rel="stylesheet">
@@ -45,7 +45,4 @@
     <!-- Custom Theme JavaScript -->
     <script src="{!! asset('public/theme/dist/js/sb-admin-2.js') !!}"></script>
 </body>
-
-
-
 </html>
