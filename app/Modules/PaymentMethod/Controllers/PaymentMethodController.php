@@ -18,6 +18,7 @@ class PaymentMethodController extends Controller
         $payment_methods = PaymentMethod::select('payment_method', ['payment_method_id', 'payment_method_name'], ['is_deleted'=>2]);
         return view("PaymentMethod::index", ['payment_methods'=>$payment_methods]);
     }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -27,6 +28,7 @@ class PaymentMethodController extends Controller
     {
         return view("PaymentMethod::create");
     }
+    
     /**
      * Store a newly created resource in storage.
      *
