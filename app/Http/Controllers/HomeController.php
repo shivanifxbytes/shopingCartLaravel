@@ -8,7 +8,7 @@ use App\User;
 class HomeController extends Controller
 
 {
- 
+
     /**
     * Create a new controller instance.
     *
@@ -27,15 +27,26 @@ class HomeController extends Controller
     public function index()
     {
         return view('myHome');
+    }   
+
+     /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function myHome()
+
+    {
+        return view('myHome');
     }
 
-   
     /**
      * Show the my users page.
      *
      * @return \Illuminate\Http\Response
      */
     public function myUsers()
+
     {
         return view('myUsers');
     }
