@@ -16,25 +16,13 @@
                 <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
             </li>
             <li>
-                <a href=""><i class="fa fa-table fa-fw"></i> Products</a>
+                <a href="{{ route('product.index')}}"><i class="fa fa-table fa-fw"></i> Products</a>
             </li>
             <li>
-                <a href="#"><i class="fa fa-sitemap fa-fw"></i> Categories<span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level">
-                    <li>
-                        <a href="#">Sub Category 1</a>
-                    </li>
-                    <li>
-                        <a href="#">Sub Category 2</a>
-                    </li>
-                </ul>
-                <!-- /.nav-second-level -->
+                <a href="{{ route('category.index')}}"><i class="fa fa-edit fa-fw"></i> Categories</a>
             </li>
             <li>
-                <a href="forms.html"><i class="fa fa-edit fa-fw"></i> Brands</a>
-            </li>
-            <li>
-                <a href="forms.html"><i class="fa fa-edit fa-fw"></i> Payment Methods</a>
+                <a href="{{ route('payment_method.index')}}"><i class="fa fa-edit fa-fw"></i> Payment Methods</a>
             </li>
         </ul>
     </div>

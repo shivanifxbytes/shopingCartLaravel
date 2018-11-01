@@ -147,9 +147,10 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
 
-        /*
+                /*
          * Package Service Providers...
          */
+        ArtemSchander\L5Modular\ModuleServiceProvider::class,
 
         /*
          * Application Service Providers...
