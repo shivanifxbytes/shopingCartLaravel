@@ -15,7 +15,7 @@ class CreateBrandTable extends Migration
     {
         Schema::create('brand', function (Blueprint $table) {
             $table->increments('id');
-            $table->text('product_id');
+            $table->integer('product_id');
             $table->string('brand_name');
             $table->smallInteger('is_deleted');
             $table->timestamps();
