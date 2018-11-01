@@ -77,6 +77,10 @@ class ProductController extends Controller
      */
     public function show($id)
     {
+         $products = Product::select('products', ['product_id', 'product_name', 'product_description','product_price', 'product_discount', 'product_selling_price','category_id'], ['is_deleted'=>2,'product_id'=>$id]);
+    
+                     return view('Product::show',['products'=>$products]);
+
     }
 
     /**
@@ -101,6 +105,33 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
+ request()->validate([
+            'product_name'          => 'required',
+            'product_price'         => 'required',
+            'product_discount'      => 'required',
+            'product_selling_price' => 'required',
+            'category_name'         => 'required',
+            'product_image'                  => 'required'
+        ]);
+        $fileName              = request()->product_image->getClientOriginalName();
+
+        $filePath              = request()->product_image->move(public_path('files'), $fileName);
+
+        $product_name          = request()->input('product_name');
+        $product_price         = request()->input('product_price');
+        $product_discount      = request()->input('product_discount');
+        $product_selling_price = request()->input('product_selling_price');
+        $category_id  = request()->input('category_name');
+        $update_array = ['product_name'           => $product_name,
+        'product_description'   => '',
+        'product_price'         => $product_price,
+        'product_discount'      => $product_discount,
+        'product_selling_price' => $product_selling_price,
+        'product_image'         => $fileName,
+        'category_id'           => $category_id];
+
+            Product::update('products',$update_array,['product_id'=>$id]);
+        return redirect()->route('product.index')->with('success', 'Product updated successfully.');
     }
 
     /**
@@ -111,5 +142,8 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
+            Product::update('products',['is_deleted' => 1 ],['product_id'=>$id]);
+
+          return redirect()->route('product.index')->with('success', 'product deleted successfully.');
     }
 }

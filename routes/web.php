@@ -21,6 +21,9 @@ Route::get('/user/verify/{token}', 'Auth\RegisterController@verifyUser');
 //product route
 Route::get('/product', '\App\Modules\Product\Controllers\ProductController@index')->name('product.index')->middleware('auth');
 Route::get('/product/create', '\App\Modules\Product\Controllers\ProductController@create')->name('product.create')->middleware('auth');
+Route::get('/product/delete/{id}', '\App\Modules\Product\Controllers\ProductController@destroy')->name('product.destroy')->middleware('auth');
+Route::get('/product/show/{id}', '\App\Modules\Product\Controllers\ProductController@show')->name('product.show')->middleware('auth');
+
 Route::post('/product', '\App\Modules\Product\Controllers\ProductController@store')->name('product.store')->middleware('auth');
 //category route
 Route::get('/category', '\App\Modules\Category\Controllers\CategoryController@index')->name('category.index')->middleware('auth');
