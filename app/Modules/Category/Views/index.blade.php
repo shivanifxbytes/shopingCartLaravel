@@ -8,7 +8,7 @@
 	</div>
 	@endif
 	<br />
-	<a href="{{ route('category.create') }}"><button class="btn-sm btn-primary glyphicon glyphicon-plus">ADD</button></a>
+	<a href="{{ route('addCategory') }}"><button class="btn-sm btn-primary glyphicon glyphicon-plus">ADD</button></a>
 	<hr />
 	<div class="row">
 		<div class="col-lg-12">
@@ -33,7 +33,7 @@
 									@method('DELETE')
 									<button type="submit" class="btn-sm btn-danger">Delete</button>
 									<a class="btn btn-sm btn-primary" href="{{ route('category.show',$key->category_id) }}">View</a>
-									<a class="btn btn-sm btn-success" href="{{ route('category.edit',$key->category_id) }}">Edit</a>
+									<a class="btn btn-sm btn-success" href="{{ route('addCategory',$key->category_id) }}">Edit</a>
 								</form>
 							</td>
 						</tr>
