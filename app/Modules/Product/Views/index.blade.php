@@ -1,10 +1,11 @@
 @extends('layouts.app')
 @section('title', 'Admin')
 @section('content')
-@if ($message = Session::get('success'))
-<div class="alert alert-success">
-	<p>{{ $message }}</p>
-</div>
+
+   @if(session()->has('success'))
+        <div class="alert alert-success">
+            {{ session()->get('success') }}
+        </div>
 @endif
 <br />
 <a href="{{ route('product.create') }}"><button class="btn-sm btn-primary glyphicon glyphicon-plus">ADD</button></a>
@@ -33,9 +34,17 @@
 							<td>{{ $key->product_discount }}</td>
 							<td>{{ $key->product_selling_price }}</td>
 							<td class="text-center">
-								<a href=""><button class="btn-sm btn-danger">Delete</button></a>
-								<a href="{{ route('product.edit',$key->product_id) }}"><button class="btn-sm btn-success">Edit</button></a>
-								<a href=""><button class="btn-sm btn-primary">Show</button></a>
+
+
+                    <a class="btn btn-info" href="{{ route('product.show',$key->product_id) }}">Show</a>
+
+ 
+                    <a class="btn btn-primary" href="{{ route('product.edit',$key->product_id) }}">Edit</a>
+
+               <a class="btn btn-danger" href="{{ route('product.destroy',$key->product_id) }}">Delete</a>
+
+
+   
 							</td>
 						</tr>
 						@endforeach

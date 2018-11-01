@@ -16,7 +16,8 @@
 			@endif
 			<h2>Add New Category</small></h2>
 			<hr class="colorgraph">
-			<form action="{{ route('category.store') }}" cl id="productform" role="form" enctype="multipart/form-data" method="post" accept-charset="utf-8">
+			<form action="" cl id="productform" role="form" enctype="multipart/form-data" method="post" accept-charset="utf-8">
+				@csrf
 				<!-- Name Field -->
 				<div class="form-group">
 					<input type="text" name="category_name" value="" id="category_name" class="form-control input-lg" maxlength="100" placeholder="Category Name" tabindex="3"  value=""/>

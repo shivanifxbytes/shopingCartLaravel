@@ -18,8 +18,8 @@
 			@endif
 
 			@foreach ($products as $key)
-			<form action="{{ route('product.store') }}" cl id="productform" role="form" enctype="multipart/form-data" method="post" accept-charset="utf-8">
-				@csrf
+			<form action="{{ route('product.update',$key->product_id) }}" cl id="productform" role="form" enctype="multipart/form-data" method="post" accept-charset="utf-8">
+				<input name="_method" type="hidden" value="PATCH">		
 				<!-- Name Field -->
 				<div class="form-group">
 					<input type="text" name="product_name"  id="product_name" class="form-control input-lg" maxlength="100" placeholder="Product Name" tabindex="3"  value="{{$key->product_name}}"/>
