@@ -17,7 +17,13 @@
     <!-- Morris Charts CSS -->
     <link href="{!! asset('public/theme/vendor/morrisjs/morris.css') !!}" rel="stylesheet">
     <!-- Custom Fonts -->
-   <link href="{!! asset('public/theme/vendor/font-awesome/css/font-awesome.min.css') !!}" rel="stylesheet" type="text/css">
+    <link href="{!! asset('public/theme/vendor/font-awesome/css/font-awesome.min.css') !!}" rel="stylesheet" type="text/css">
+
+    <!-- DataTables CSS -->
+    <link href="{!! asset('public/theme/vendor/datatables-plugins/dataTables.bootstrap.css') !!}" rel="stylesheet">
+
+    <!-- DataTables Responsive CSS -->
+    <link href="{!! asset('public/theme/vendor/datatables-responsive/dataTables.responsive.css') !!}" rel="stylesheet">
 </head>
 <body>
     <div id="wrapper">
@@ -44,5 +50,7 @@
     <script src="{!! asset('public/theme/data/morris-data.js') !!}"></script>
     <!-- Custom Theme JavaScript -->
     <script src="{!! asset('public/theme/dist/js/sb-admin-2.js') !!}"></script>
+    @yield('scripts')
+
 </body>
 </html>

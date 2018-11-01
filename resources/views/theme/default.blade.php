@@ -44,5 +44,8 @@
     <script src="{!! asset('public/theme/data/morris-data.js') !!}"></script>
     <!-- Custom Theme JavaScript -->
     <script src="{!! asset('public/theme/dist/js/sb-admin-2.js') !!}"></script>
+
+                @yield('scripts')
+
 </body>
 </html>
