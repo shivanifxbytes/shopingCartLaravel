@@ -16,10 +16,16 @@
                 <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
             </li>
             <li>
+                <a href="{{ route('category.index')}}"><i class="fa fa-edit fa-fw"></i> Categories</a>
+            </li>
+            <li>
+                <a href="{{ route('brand.index')}}"><i class="fa fa-edit fa-fw"></i> {{ __('messages.brand') }}</a>
+            </li>
+            <li>
                 <a href="{{ route('product.index')}}"><i class="fa fa-table fa-fw"></i> Products</a>
             </li>
             <li>
-                <a href="{{ route('category.index')}}"><i class="fa fa-edit fa-fw"></i> Categories</a>
+                <a href="{{ route('order.index')}}"><i class="fa fa-edit fa-fw"></i> Order</a>
             </li>
             <li>
                 <a href="{{ route('payment_method.index')}}"><i class="fa fa-edit fa-fw"></i> Payment Methods</a>
