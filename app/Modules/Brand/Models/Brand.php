@@ -56,3 +56,6 @@ class Brand extends Model {
      return DB::table('brand')->where('id', '=', $brand_id)->delete();
    }
 }
+
+
+

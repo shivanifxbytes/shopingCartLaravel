@@ -41,16 +41,14 @@ class BrandController extends Controller
      */
     public function getBrand($brand_id = null)
     {
-        echo "brand";
-        die();
-       $this->brandObj = new Brand();
+       $this->brandObj = new Brand(); 
         if (!empty($brand_id)) {
             try {
                 $brand_id = Crypt::decrypt($brand_id);
                 $check= $this->brandObj->findBrandId($brand_id);
                 if (is_int($brand_id) && $check > 0) {
-                    $data['user'] = $this->dashboardObj->findBrandId($brand_id);
-                    return view('admin.editBrand', $data);
+                    $data['user'] = $this->brandObj->findBrandId($brand_id);
+                    return view("Brand::editBrand", $data);
                 } else {
                     return redirect()->back()->withErrors(__('messages.Id_incorrect'));
                 }
@@ -58,7 +56,7 @@ class BrandController extends Controller
                 return view("admin.errors");
             }
         } else {
-            return view('admin.addBrand');
+            return view("Brand::addBrand");
         }
     }
 
@@ -87,8 +85,7 @@ class BrandController extends Controller
      */
     public function postBrand(Request $request, $brand_id = null)
     {
-echo "postBrand";
-die();
+          
     }
 
     /**
