@@ -35,6 +35,9 @@ Route::post('/addCategory/{category_id?}', '\App\Modules\Category\Controllers\Ca
 Route::get('/payment_method', '\App\Modules\PaymentMethod\Controllers\PaymentMethodController@index')->name('payment_method.index')->middleware('auth');
 Route::get('/payment_method/create', '\App\Modules\PaymentMethod\Controllers\PaymentMethodController@create')->name('payment_method.create')->middleware('auth');
 //order method route
-Route::get('/order', '\App\Modules\Product\Controllers\OrderController@index')->name('order.index')->middleware('auth');
+Route::get('/order', '\App\Modules\Order\Controllers\OrderController@index')->name('order.index')->middleware('auth');
 //brand method route
-Route::get('/brand', '\App\Modules\Product\Controllers\BrandController@index')->name('brand.index')->middleware('auth');
+Route::get('/brand', '\App\Modules\Brand\Controllers\BrandController@index')->name('brand.index')->middleware('auth');
+Route::get('/addBrand/{brand_id?}', '\App\Modules\Brand\Controllers\BrandController@getBrand');
+Route::get('/addBrand/{brand_id?}', '\App\Modules\Brand\Controllers\BrandController@postBrand');
+Route::get('/deleteBrand/{brand_id?}', '\App\Modules\Brand\Controllers\BrandController@deleteBrand');
