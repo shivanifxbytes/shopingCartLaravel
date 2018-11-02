@@ -15,7 +15,7 @@
 			@endif
 			<h2>Add New product</small></h2>
 			<hr class="colorgraph">
-			<form action="{{ route('product.store') }}" id="productform" role="form" enctype="multipart/form-data" method="post" accept-charset="utf-8">
+			<form action="" id="productform" role="form" enctype="multipart/form-data" method="post" accept-charset="utf-8">
 				@csrf
 				<!-- Name Field -->
 				<div class="form-group">

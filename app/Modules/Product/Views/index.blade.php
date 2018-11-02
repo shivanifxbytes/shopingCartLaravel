@@ -8,7 +8,7 @@
         </div>
 @endif
 <br />
-<a href="{{ route('product.create') }}"><button class="btn-sm btn-primary glyphicon glyphicon-plus">ADD</button></a>
+<a href="{{ route('addProduct') }}"><button class="btn-sm btn-primary glyphicon glyphicon-plus">ADD</button></a>
 <hr />
 <div class="row">
 	<div class="col-lg-12">
@@ -39,7 +39,7 @@
                     <a class="btn btn-info" href="{{ route('product.show',$key->product_id) }}">Show</a>
 
  
-                    <a class="btn btn-primary" href="{{ route('product.edit',$key->product_id) }}">Edit</a>
+                    <a class="btn btn-primary" href="{{ route('addProduct',$key->product_id) }}">Edit</a>
 
                <a class="btn btn-danger" href="{{ route('product.destroy',$key->product_id) }}">Delete</a>
 
