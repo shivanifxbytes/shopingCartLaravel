@@ -1,4 +1,4 @@
-[<?php
+<?php
 
 namespace App\Modules\Product\Controllers;
 
@@ -144,4 +144,3 @@ Product::update('products',['is_deleted' => 1 ],['product_id'=>$id]);
 return redirect()->route('product.index')->with('success', 'product deleted successfully.');
 }
 }
-]
