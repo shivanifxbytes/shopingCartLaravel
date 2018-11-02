@@ -41,6 +41,6 @@ Route::get('/order', '\App\Modules\Order\Controllers\OrderController@index')->na
 
 //brand method route
 Route::get('/brand', '\App\Modules\Brand\Controllers\BrandController@index')->name('brand.index')->middleware('auth');
-Route::get('/addBrand/{brand_id?}', '\App\Modules\Brand\Controllers\BrandController@getBrand');
-Route::get('/addBrand/{brand_id?}', '\App\Modules\Brand\Controllers\BrandController@postBrand');
+Route::get('/addBrand/{brand_id?}', '\App\Modules\Brand\Controllers\BrandController@getBrand')->name('addBrand')->middleware('auth');
+Route::post('/addBrand/{brand_id?}', '\App\Modules\Brand\Controllers\BrandController@postBrand')->name('postBrand')->middleware('auth');
 Route::get('/deleteBrand/{brand_id?}', '\App\Modules\Brand\Controllers\BrandController@deleteBrand');

@@ -16,7 +16,7 @@
       @endif
 	<br />
 	
-	<a class="btn-sm btn-primary glyphicon glyphicon-plus" href=" {{ url('/') }}/addBrand"> {{__('messages.add')}} </a>
+	<a class="btn-sm btn-primary glyphicon glyphicon-plus" href=" {{url('/') }}/addBrand"> {{__('messages.add')}} </a>
 		
 	</a>
 	<hr />
