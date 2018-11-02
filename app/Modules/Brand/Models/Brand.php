@@ -55,6 +55,18 @@ class Brand extends Model {
    {
      return DB::table('brand')->where('id', '=', $brand_id)->delete();
    }
+
+    /**
+    * @DateOfCreation         27 oct 2018
+    * @ShortDescription       This function delete the specified row from table
+    * @return                 result
+    */
+   public function selectPostBrand($id, $brand_id)
+   {
+ return DB::table('brand')->select('brand_id', 'brand_name')
+            ->where('brand_id', '=', $brand_id)
+            ->get()->toArray();
+   }
 }
 
 
