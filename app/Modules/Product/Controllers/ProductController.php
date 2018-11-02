@@ -51,7 +51,6 @@ class ProductController extends Controller
 			'product_name'          => 'required',
 			'product_price'         => 'required',
 			'product_discount'      => 'required',
-			'product_selling_price' => 'required',
 			'category_name'         => 'required',
 			'product_image'                  => 'required'
 		]);
@@ -60,7 +59,7 @@ class ProductController extends Controller
 		$product_name          = request()->input('product_name');
 		$product_price         = request()->input('product_price');
 		$product_discount      = request()->input('product_discount');
-		$product_selling_price = request()->input('product_selling_price');
+		$product_selling_price = $product_price - ($product_price*$product_discount/100);
 		$category_id  = request()->input('category_name');
 		$insert_array = ['product_name'           => $product_name,
 		'product_description'   => '',
