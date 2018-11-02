@@ -4,7 +4,8 @@ namespace App\Modules\Brand\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\modules\Brand\models\Brand;
+use App\Modules\Brand\Models\Brand;
+use Illuminate\Support\Facades\Validator;
 use Crypt;
 
 class BrandController extends Controller
@@ -47,7 +48,7 @@ class BrandController extends Controller
                 $brand_id = Crypt::decrypt($brand_id);
                 $check= $this->brandObj->findBrandId($brand_id);
                 if (is_int($brand_id) && $check > 0) {
-                    $data['user'] = $this->brandObj->findBrandId($brand_id);
+                    $data['brand'] = $this->brandObj->findBrandId($brand_id);
                     return view("Brand::editBrand", $data);
                 } else {
                     return redirect()->back()->withErrors(__('messages.Id_incorrect'));
@@ -58,19 +59,6 @@ class BrandController extends Controller
         } else {
             return view("Brand::addBrand");
         }
-    }
-
-    /**
-     * @DateOfCreation         1 Nov 2018
-     * @ShortDescription       Function deteted row of flattype
-     * @param integer $id      [user id in case of edit, null in case of add]
-     * @return                 result
-     */
-    public function deleteBrand($brand_id = null)
-    {
-        $brand_id = Crypt::decrypt($brand_id);
-        $delete  = Brand::deleteBrand($brand_id);
-        return redirect('Brand::index')->with('message', __('messages.Record_delete'));
     }
 
      /**
@@ -85,8 +73,50 @@ class BrandController extends Controller
      */
     public function postBrand(Request $request, $brand_id = null)
     {
-          
+      $rules = array(
+            'brand_name'   => 'required|max:50',
+        );
+        $validator = Validator::make($request->all(), $rules);
+        if ($validator->fails()) {
+            return redirect()->back()->withInput()->withErrors($validator->errors());
+        } else {
+            $requestData = array(
+                'brand_name'    => $request->input('brand_name'),
+                'is_deleted'=>2,
+            );
+            if (empty($brand_id)) {
+                $Brand = Brand::insert($requestData);
+                if ($Brand) {
+                    return redirect('brand.index')->with('message', __('messages.Record_added'));
+                } else {
+                    return redirect()->back()->withInput()->withErrors(__('messages.try_again'));
+                }
+            } else {
+                $brand_id = Crypt::decrypt($brand_id);
+                if (is_int($brand_id)) {
+                    $Brand = Brand::where(array('id' => $brand_id))->update($requestData);
+                    return redirect('brand.index')->with('message', __('messages.Record_updated'));
+                } else {
+                    return redirect()->back()->withInput()->withErrors(__('messages.try_again'));
+                }
+            }
+        }
+
     }
+
+     /**
+     * @DateOfCreation         1 Nov 2018
+     * @ShortDescription       Function deteted row of flattype
+     * @param integer $id      [user id in case of edit, null in case of add]
+     * @return                 result
+     */
+    public function deleteBrand($brand_id = null)
+    {
+        $brand_id = Crypt::decrypt($brand_id);
+        $delete  = Brand::deleteBrand($brand_id);
+        return redirect('Brand::index')->with('message', __('messages.Record_delete'));
+    }
+
 
     /**
      * Show the form for creating a new resource.
