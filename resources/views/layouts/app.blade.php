@@ -28,10 +28,13 @@
 <body>
     <div id="wrapper">
         <!-- Navigation -->
-                               <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+        @guest
+        @else
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
             @include('theme.header')
             @include('theme.sidebar')
         </nav>
+        @endguest
         <div id="page-wrapper">
             @yield('content')
         </div>
@@ -51,6 +54,5 @@
     <!-- Custom Theme JavaScript -->
     <script src="{!! asset('public/theme/dist/js/sb-admin-2.js') !!}"></script>
     @yield('scripts')
-
 </body>
 </html>
