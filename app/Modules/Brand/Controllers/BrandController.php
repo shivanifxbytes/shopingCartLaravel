@@ -87,7 +87,7 @@ class BrandController extends Controller
             if (empty($brand_id)) {
                 $Brand = Brand::insert($requestData);
                 if ($Brand) {
-                    return redirect('brand.index')->with('message', __('messages.Record_added'));
+                    return redirect()->route('brand.index')->with('message', __('messages.Record_added'));
                 } else {
                     return redirect()->back()->withInput()->withErrors(__('messages.try_again'));
                 }
@@ -95,7 +95,7 @@ class BrandController extends Controller
                 $brand_id = Crypt::decrypt($brand_id);
                 if (is_int($brand_id)) {
                     $Brand = Brand::where(array('id' => $brand_id))->update($requestData);
-                    return redirect('brand.index')->with('message', __('messages.Record_updated'));
+                    return redirect()->route('brand.index')->with('message', __('messages.Record_updated'));
                 } else {
                     return redirect()->back()->withInput()->withErrors(__('messages.try_again'));
                 }
@@ -114,73 +114,6 @@ class BrandController extends Controller
     {
         $brand_id = Crypt::decrypt($brand_id);
         $delete  = Brand::deleteBrand($brand_id);
-        return redirect('Brand::index')->with('message', __('messages.Record_delete'));
-    }
-
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        return redirect()->route('brand.index')->with('message', __('messages.Record_delete'));
     }
 }
